@@ -1,0 +1,24 @@
+import numpy as np
+
+def calculate(list):
+    
+    if len(list) < 9:
+        raise ValueError("List must contain nine numbers.") 
+
+
+    df = np.array(list)
+    d3 = df.reshape((3,3))
+
+    calculations = {
+        'mean': [np.mean(d3, axis=0).tolist(), np.mean(d3, axis=1).tolist(), np.mean(df).item()],
+        'variance': [np.var(d3, axis=0).tolist(), np.var(d3, axis=1).tolist(), np.var(df).item()],
+        'standard deviation': [np.std(d3, axis=0).tolist(), np.std(d3, axis=1).tolist(), np.std(df).item()],
+        'max': [np.max(d3, axis=0).tolist(), np.max(d3, axis=1).tolist(), np.max(df).item()],
+        'min': [np.min(d3, axis=0).tolist(), np.min(d3, axis=1).tolist(), np.min(df).item()],
+        'sum': [np.sum(d3, axis=0).tolist(), np.sum(d3, axis=1).tolist(), np.sum(df).item()]
+        }
+
+    #print(calculations)
+    return calculations
+
+#calculate([0,1,2,3,4,5,6,7,8])
